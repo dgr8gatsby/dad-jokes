@@ -2,7 +2,7 @@
   "name": "dad-jokes",
   "version": "1.0.0",
   "description": "Helping people tell the BEST dad jokes!",
-  "main": "index.js",
+  "main": "server/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/Gr8Gatsby/dad-jokes/issues"
   },
-  "homepage": "https://github.com/Gr8Gatsby/dad-jokes#readme"
+  "homepage": "https://github.com/Gr8Gatsby/dad-jokes#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
