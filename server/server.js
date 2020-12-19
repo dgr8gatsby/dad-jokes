@@ -1,5 +1,8 @@
 const express = require ('express');
 const bodyParser = require ('body-parser');
+const MongoClient = require ('mongodb').MongoClient;
+
+MongoClient.connect ('mongodb-connection-string', (err, client) => {});
 const app = express ();
 
 app.listen (3000, () => {
