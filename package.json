@@ -1,0 +1,23 @@
+{
+  "name": "dad-jokes",
+  "version": "1.0.0",
+  "description": "Helping people tell the BEST dad jokes!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gr8Gatsby/dad-jokes.git"
+  },
+  "keywords": [
+    "dad",
+    "jokes"
+  ],
+  "author": "Kevin Hill",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Gr8Gatsby/dad-jokes/issues"
+  },
+  "homepage": "https://github.com/Gr8Gatsby/dad-jokes#readme"
+}
