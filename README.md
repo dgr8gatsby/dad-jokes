@@ -1,7 +1,13 @@
 # dad-jokes
 
-    npm install
+Setup
+    `npm install`
 
-    npm run dev - runs nodemon
-    npm run test - runs jest
+To develop locally:
+    `npm run dev` - runs nodemon locally
+    
+Testing
+    `npm run test` - runs jest
+
+
     npm run start - runs server.js
