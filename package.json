@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "dev": "nodemon server.js",
-    "start": "nodemon server.js",
+    "predev": "parcel build ./src/index.html",
+    "start": "node server.js",
     "prestart": "parcel build ./src/index.html"
   },
   "repository": {

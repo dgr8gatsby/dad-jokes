@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Dad Jokes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
@@ -22,7 +23,12 @@
     </form>
 
     <script src="../client/components/app/app.js"></script>
-    <dad-joke-app></dad-joke-app>
+    <script src="../client/components/app-header/app-header.js"></script>
+    <script src="../client/components/app-screen/app-screen.js"></script>
+    <dad-joke-app>
+        <app-header slot="header"></app-header>
+        <app-screen slot="body"></app-screen>
+    </dad-joke-app>
 </body>
 
 </html>

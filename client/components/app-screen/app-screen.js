@@ -1,5 +1,5 @@
 // This class will be the container for the entire dad joke application
-class App extends HTMLElement {
+class AppScreen extends HTMLElement {
   constructor () {
     super ();
     var shadow = this.attachShadow ({
@@ -20,13 +20,9 @@ class App extends HTMLElement {
 
   render () {
     this.shadowRoot.innerHTML = `
-        <h1>Dad Joke App Container</h1>
-        <p>
-            <slot name="header"></slot>
-            <slot name="body"></slot>
-        </p>
-      `;
+    <h3>Screen</h3>
+        `;
   }
 }
 
-customElements.define ('dad-joke-app', App);
+customElements.define ('app-screen', AppScreen);
