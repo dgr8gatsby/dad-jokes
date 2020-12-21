@@ -1,4 +1,5 @@
 const express = require ('express');
+const path = require ('path');
 const bodyParser = require ('body-parser');
 const MongoClient = require ('mongodb').MongoClient;
 
@@ -6,15 +7,18 @@ const MongoClient = require ('mongodb').MongoClient;
 MongoClient.connect ('mongodb-connection-string', (err, client) => {});
 const app = express ();
 const PORT = process.env.PORT || 3000;
-const hostname = 'localhost'
+const hostname = 'localhost';
 
-app.listen (PORT, (err) => {
-  if(err) throw err;
-  console.log (`application listenting on http://${hostname}: ${PORT}`);
+app.listen (PORT, err => {
+  if (err) throw err;
+  console.log (`application listenting on http://${hostname}:${PORT}`);
 });
 
 // Used to parse POST body data
 app.use (bodyParser.urlencoded ({extended: true}));
+
+// Create a public folder for client
+app.use (express.static (path.join (__dirname, 'dist')));
 
 // Default path for main application
 app.get ('/', (req, res) => {
