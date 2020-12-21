@@ -1,7 +1,21 @@
 version: 2.1
+
 orbs:
   node: circleci/node@3.0.0
+
+# Jobs definition
+jobs:
+  run_tests_with_coverage:
+    executor: node/default
+    steps:
+      - checkout
+      - node/install-packages
+      - run: npx jest --ci --runInBand --config=jest.config.ci.js
+      - run: npx codecov --token="${CODECOV_TOKEN}"
+
 workflows:
-  node-tests:
-    jobs:
-      - node/test
+   version: 2
+   run_tests_with_coverage_report:
+     jobs:
+       - run_tests_with_coverage
+
