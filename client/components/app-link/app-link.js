@@ -31,16 +31,34 @@ class AppLink extends HTMLElement {
   render () {
     this.shadowRoot.innerHTML = `
         <style>
-        a {     
-          float: left;
-          color: black;
-          text-align: center;
-          padding: 12px;
-          text-decoration: none;
-          font-size: 18px; 
-          line-height: 25px;
-          border-radius: 4px;
-        }
+          a {     
+            float: left;
+            color: black;
+            text-align: center;
+            padding: 12px;
+            text-decoration: none;
+            font-size: 18px; 
+            line-height: 25px;
+            border-radius: 4px;
+          }
+          @media screen and (max-width: 500px) {
+            a {
+                float: none;
+                display: block;
+                text-align: left;
+            }
+          }
+
+          a:hover {
+            background-color: #ddd;
+            color: black;
+          }
+
+          a.active {
+            background-color: dodgerblue;
+            color: white;
+          }
+    
         </style>
         <a href="#${this.route}">${this.name}</a>
       `;

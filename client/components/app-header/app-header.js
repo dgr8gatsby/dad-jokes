@@ -34,39 +34,19 @@ class AppHeader extends HTMLElement {
         padding: 20px 10px;
         }
 
-        .header app-link {
-        
-        }
-
         .header a.logo {
         font-size: 25px;
         font-weight: bold;
         }
 
-        .header a:hover {
-        background-color: #ddd;
-        color: black;
-        }
-
-        .header a.active {
-        background-color: dodgerblue;
-        color: white;
-        }
-
         .header-right {
-        float: right;
+            float: right;
         }
 
         @media screen and (max-width: 500px) {
-        .header a {
-            float: none;
-            display: block;
-            text-align: left;
-        }
-        
-        .header-right {
-            float: none;
-        }
+            .header-right {
+                float: none;
+            }
         }
     </style>
 
@@ -75,7 +55,6 @@ class AppHeader extends HTMLElement {
     <div class="header-right">
         <slot name="navigation">
         </slot>
-        <a href="#test">TEST</a>
     </div>
     </div>
         `;
