@@ -1,3 +1,5 @@
+import AppLink from '../app-link/app-link';
+
 // This class will be the container for the entire dad joke application
 class AppHeader extends HTMLElement {
   constructor () {
@@ -55,6 +57,7 @@ class AppHeader extends HTMLElement {
     <div class="header-right">
         <slot name="navigation">
         </slot>
+        <app-link link-name="home" link-route="home"></app-link>
     </div>
     </div>
         `;
