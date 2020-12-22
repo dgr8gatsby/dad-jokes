@@ -4,7 +4,6 @@ class AppScreen extends HTMLElement {
     super ();
     var shadow = this.attachShadow ({
       mode: 'open',
-      delegatesFocus: true,
     });
   }
 

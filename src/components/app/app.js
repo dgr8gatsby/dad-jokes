@@ -1,10 +1,11 @@
 // This class will be the container for the entire dad joke application
+const ELEMENT_NAME = 'dad-joke-app';
+
 class App extends HTMLElement {
   constructor () {
     super ();
     var shadow = this.attachShadow ({
       mode: 'open',
-      delegatesFocus: true,
     });
   }
 
@@ -29,4 +30,6 @@ class App extends HTMLElement {
   }
 }
 
-customElements.define ('dad-joke-app', App);
+if (customElements.get (ELEMENT_NAME) === undefined) {
+  customElements.define (ELEMENT_NAME, App);
+}

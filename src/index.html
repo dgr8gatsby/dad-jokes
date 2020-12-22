@@ -10,7 +10,7 @@
 <body>
 
 
-    <h1>Add Joke:</h1>
+    <!-- <h1>Add Joke:</h1>
     <form action="/jokes" method="POST">
         <select name="type" id="joke-type">
             <option value="question">Question & Answer</option>
@@ -20,7 +20,7 @@
         <input type="text" placeholder="headline" name="headline">
         <input type="text" placeholder="punchline" name="punchline">
         <button type="submit">Submit</button>
-    </form>
+    </form> -->
 
     <script src="components/app/app.js"></script>
     <script src="components/app-header/app-header.js"></script>
@@ -29,6 +29,7 @@
     <dad-joke-app>
         <app-header slot="header">
             <app-link slot="navigation" link-name="Home" link-route="home"></app-link>
+            <app-link slot="navigation" link-name="About" link-route="about"></app-link>
         </app-header>
         <app-screen slot="body"></app-screen>
     </dad-joke-app>

@@ -6,9 +6,9 @@
   "scripts": {
     "test": "jest",
     "dev": "nodemon server.js",
-    "predev": "parcel build ./src/index.html",
+    "predev": "parcel watch src/index.html",
     "start": "node server.js",
-    "prestart": "parcel build ./src/index.html"
+    "prestart": "parcel build src/index.html"
   },
   "repository": {
     "type": "git",
