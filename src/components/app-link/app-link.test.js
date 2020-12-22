@@ -1,7 +1,8 @@
-const AppLink = require ('./app-link');
+var AppLink = require ('./app-link');
 
 describe ('app-link', () => {
   it ('creates a navigation link for the app', () => {
+    //customElements.define ('app-link', class extends HTMLElement {});
     // Create a new instance of app-link
     const element = document.createElement ('app-link', {
       is: AppLink,

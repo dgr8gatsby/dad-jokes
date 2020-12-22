@@ -63,6 +63,4 @@ class AppHeader extends HTMLElement {
   }
 }
 
-if (customElements.get (ELEMENT_NAME) === undefined) {
-  customElements.define (ELEMENT_NAME, AppHeader);
-}
+customElements.define (ELEMENT_NAME, AppHeader);
