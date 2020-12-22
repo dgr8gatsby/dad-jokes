@@ -67,6 +67,4 @@ class AppLink extends HTMLElement {
   }
 }
 
-if (customElements.get (ELEMENT_NAME) === undefined) {
-  customElements.define (ELEMENT_NAME, AppLink);
-}
+customElements.define (ELEMENT_NAME, AppLink);
