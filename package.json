@@ -5,6 +5,7 @@
   "main": "server/server.js",
   "scripts": {
     "test": "jest",
+    "coverage": "jest --config=jest.config.ci.js",
     "dev": "nodemon server.js",
     "predev": "parcel build ./src/index.html",
     "start": "node server.js",
