@@ -79,7 +79,7 @@ class AppLink extends HTMLElement {
           }
     
         </style>
-        <a href="#${this.route}" onclick="${this.handleClick ()}">${this.name}</a>
+        <a href="#${this.route}">${this.name}</a>
       `;
   }
 }
