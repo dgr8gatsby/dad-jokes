@@ -21,7 +21,7 @@ class App extends HTMLElement {
 
   render () {
     this.shadowRoot.innerHTML = `
-        <h1>Dad Joke App Container</h1>
+        <h1>Dad Jokes</h1>
         <p>
             <slot name="header"></slot>
             <slot name="body"></slot>

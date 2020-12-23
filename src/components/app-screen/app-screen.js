@@ -7,11 +7,13 @@ class AppScreen extends HTMLElement {
     });
   }
 
-  // static get observedAttributes(){
-  //     return []
-  // }
+  static get observedAttributes () {
+    return [screen];
+  }
 
-  // attributeChangedCallback(attribute, oldValue, newValue){}
+  attributeChangedCallback (attribute, oldValue, newValue) {
+    // Try to find a view component based off the screen attribute
+  }
 
   connectedCallback () {
     this.render ();
@@ -19,7 +21,7 @@ class AppScreen extends HTMLElement {
 
   render () {
     this.shadowRoot.innerHTML = `
-    <h3>Screen</h3>
+    <slot></slot>
         `;
   }
 }
