@@ -1,4 +1,4 @@
-var AppLink = require ('./app-link');
+import AppLink from './app-link';
 
 describe ('app-link', () => {
   it ('creates a navigation link for the app', () => {

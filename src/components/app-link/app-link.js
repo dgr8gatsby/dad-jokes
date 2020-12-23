@@ -2,7 +2,7 @@
 
 const ELEMENT_NAME = 'app-link';
 
-class AppLink extends HTMLElement {
+export default class AppLink extends HTMLElement {
   constructor () {
     super ();
     this.handleClick = this.handleClick.bind (this);
