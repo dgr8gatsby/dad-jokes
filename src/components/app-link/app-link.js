@@ -5,9 +5,27 @@ const ELEMENT_NAME = 'app-link';
 class AppLink extends HTMLElement {
   constructor () {
     super ();
+    this.handleClick = this.handleClick.bind (this);
     var shadow = this.attachShadow ({
       mode: 'open',
     });
+  }
+
+  handleClick (e) {
+    if (e != undefined) {
+      e.preventDefault ();
+
+      console.log (this.route);
+
+      const event = new CustomEvent ('navigate', {
+        detail: this.route,
+        composed: true,
+        bubbles: true,
+      });
+      this.dispatchEvent (event);
+    } else {
+      console.log (`onclick event is initializing`);
+    }
   }
 
   static get observedAttributes () {
@@ -27,6 +45,7 @@ class AppLink extends HTMLElement {
   }
 
   connectedCallback () {
+    this.addEventListener ('click', this.handleClick, false);
     this.render ();
   }
 
@@ -50,19 +69,17 @@ class AppLink extends HTMLElement {
                 text-align: left;
             }
           }
-
           a:hover {
             background-color: #ddd;
             color: black;
           }
-
           a.active {
             background-color: dodgerblue;
             color: white;
           }
     
         </style>
-        <a href="#${this.route}">${this.name}</a>
+        <a href="#${this.route}" onclick="${this.handleClick ()}">${this.name}</a>
       `;
   }
 }
