@@ -10,7 +10,7 @@ jobs:
     steps:
       - checkout
       - node/install-packages
-      - run: npx jest --ci --runInBand --config=jest.config.ci.js
+      - run: npx jest --ci --runInBand
       - run: npx codecov --token="${CODECOV_TOKEN}"
 
 workflows:
