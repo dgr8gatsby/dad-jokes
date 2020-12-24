@@ -14,9 +14,6 @@ export default class AppLink extends HTMLElement {
   handleClick (e) {
     if (e != undefined) {
       e.preventDefault ();
-
-      console.log (this.route);
-
       const event = new CustomEvent ('navigate', {
         detail: this.route,
         composed: true,

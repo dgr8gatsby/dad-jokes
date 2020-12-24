@@ -17,9 +17,6 @@
     handleClick (e) {
       if (e != undefined) {
         e.preventDefault ();
-
-        console.log (this.route);
-
         const event = new CustomEvent ('navigate', {
           detail: this.route,
           composed: true,
@@ -169,12 +166,6 @@
       this.AppHeaderComponent = AppHeader;
     }
 
-    // static get observedAttributes(){
-    //     return []
-    // }
-
-    // attributeChangedCallback(attribute, oldValue, newValue){}
-
     screen = null;
 
     connectedCallback () {
@@ -200,11 +191,9 @@
       } else {
         try {
           let screenPath = `./screens/${name}/${name}.js`;
-          console.log (screenPath);
           const screenConstructor = await import (screenPath);
           this.screen = screenConstructor;
           this.displayScreen (name);
-          console.log (this.screen);
         } catch (e) {
           throw new CustomError (
             `Unable to load module`,
@@ -216,7 +205,6 @@
 
     displayScreen (name) {
       const screenElement = this.shadowRoot.querySelector ("p[name='screens']");
-      console.log (screenElement);
       screenElement.innerHTML = '';
       screenElement.innerHTML = `<${name}></${name}>`;
     }
