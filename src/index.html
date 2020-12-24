@@ -9,23 +9,9 @@
 
 <body>
 
-
-    <!-- <h1>Add Joke:</h1>
-    <form action="/jokes" method="POST">
-        <select name="type" id="joke-type">
-            <option value="question">Question & Answer</option>
-            <option value="rhetorical">Rhetorical Questions</option>
-            <option value="oneliner">One-liner</option>
-        </select>
-        <input type="text" placeholder="headline" name="headline">
-        <input type="text" placeholder="punchline" name="punchline">
-        <button type="submit">Submit</button>
-    </form> -->
-
+    <!-- Load main app component scripts -->
     <script src="components/app/app.js" type="module"></script>
-    <script src="components/app-header/app-header.js" type="module"></script>
-    <script src="components/app-screen/app-screen.js" type="module"></script>
-    <script src="components/app-link/app-link.js" type="module"></script>
+
     <dad-joke-app>
         <app-header slot="header">
             <app-link slot="navigation" link-name="View Joke" link-route="view-joke"></app-link>

@@ -1,13 +1,17 @@
+import AppLink from '../app-link/app-link.js';
+
 // This class will be the container for the entire dad joke application
 const ELEMENT_NAME = 'app-header';
 
-class AppHeader extends HTMLElement {
+export default class AppHeader extends HTMLElement {
   constructor () {
     super ();
     var shadow = this.attachShadow ({
       mode: 'open',
       delegatesFocus: true,
     });
+
+    this.AppLinkElement = AppLink;
   }
 
   connectedCallback () {

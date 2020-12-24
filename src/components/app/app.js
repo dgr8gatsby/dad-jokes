@@ -1,3 +1,5 @@
+import AppHeader from '../app-header/app-header.js';
+
 // This class will be the container for the entire dad joke application
 const ELEMENT_NAME = 'dad-joke-app';
 const DEFAULT_SCREEN = 'view-joke';
@@ -9,6 +11,8 @@ class App extends HTMLElement {
     var shadow = this.attachShadow ({
       mode: 'open',
     });
+
+    this.AppHeaderComponent = AppHeader;
   }
 
   // static get observedAttributes(){
