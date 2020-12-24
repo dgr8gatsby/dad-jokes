@@ -12,17 +12,13 @@ export default class AppLink extends HTMLElement {
   }
 
   handleClick (e) {
-    if (e != undefined) {
-      e.preventDefault ();
-      const event = new CustomEvent ('navigate', {
-        detail: this.route,
-        composed: true,
-        bubbles: true,
-      });
-      this.dispatchEvent (event);
-    } else {
-      console.log (`onclick event is initializing`);
-    }
+    e.preventDefault ();
+    const event = new CustomEvent ('navigate', {
+      detail: this.route,
+      composed: true,
+      bubbles: true,
+    });
+    this.dispatchEvent (event);
   }
 
   static get observedAttributes () {
