@@ -24,11 +24,7 @@ class App extends HTMLElement {
   }
 
   handleNavigate (e) {
-    if (e != undefined) {
-      this.loadScreen (e.detail);
-    } else {
-      console.log (`handleNavigation is initializing`);
-    }
+    this.loadScreen (e.detail);
   }
 
   // Dynamically load screens
