@@ -52,7 +52,7 @@ describe ('app-link', () => {
     appLinkElement.dispatchEvent (clickEvent);
 
     return Promise.resolve ().then (() => {
-      console.log (document.navigateDetail);
+      expect (document.navigateDetail).toBe ('home');
     });
   });
 });
