@@ -17,8 +17,8 @@ export default class ViewJoke extends HTMLElement {
     this.shadowRoot.innerHTML = `
     <h1>View Joke Screen</h1>
     <p>
-        <h3>How do you handle a JavaScript bug?</h3>
-        <h3>You console it!</h3>
+        <div>How do you handle a JavaScript bug?</div>
+        <div>You console it!</div>
     </p>
   `;
   }
