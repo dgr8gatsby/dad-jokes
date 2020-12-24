@@ -1,10 +1,14 @@
 const ELEMENT_NAME = 'view-joke';
-
+/** This class renders a joke **/
 export default class ViewJoke extends HTMLElement {
+  /**
+   * Represents a ViewJoke
+   * @constructor
+   */
   constructor () {
     super ();
 
-    var shadow = this.attachShadow ({
+    this.attachShadow ({
       mode: 'open',
     });
   }
