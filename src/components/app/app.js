@@ -65,6 +65,4 @@ class App extends HTMLElement {
   }
 }
 
-if (customElements.get (ELEMENT_NAME) === undefined) {
-  customElements.define (ELEMENT_NAME, App);
-}
+customElements.define (ELEMENT_NAME, App);

@@ -1,6 +1,14 @@
-// jest.config.js
 module.exports = {
+  collectCoverage: true,
+  coverageThreshold: {
+    global: {
+      branches: 70,
+      functions: 70,
+      lines: 70,
+      statements: 70,
+    },
+  },
   transform: {
-    '\\.m?jsx?$': 'jest-esm-transformer',
+    '.js': 'jest-esm-transformer',
   },
 };
