@@ -1,6 +1,6 @@
 const ELEMENT_NAME = 'add-joke';
 
-class AddJoke extends HTMLElement {
+export default class AddJoke extends HTMLElement {
   constructor () {
     super ();
 
@@ -9,3 +9,5 @@ class AddJoke extends HTMLElement {
     });
   }
 }
+
+customElements.define (ELEMENT_NAME, AddJoke);
