@@ -18,7 +18,7 @@ app.listen (PORT, err => {
 app.use (bodyParser.urlencoded ({extended: true}));
 
 // Create a public folder for client
-app.use (express.static (path.join (__dirname, 'src')));
+app.use (express.static (path.join (__dirname, 'public')));
 
 // Default path for main application
 app.get ('/', (req, res) => {

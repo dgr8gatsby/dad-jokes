@@ -1,4 +1,4 @@
-import AppLink from '../app-link/app-link.js';
+import AppLink from './app-link/app-link.js';
 
 // This class will be the container for the entire dad joke application
 const ELEMENT_NAME = 'app-header';

@@ -1,4 +1,4 @@
-import AppHeader from '../app-header/app-header.js';
+import AppHeader from './app-header/app-header.js';
 
 // This class will be the container for the entire dad joke application
 const ELEMENT_NAME = 'dad-joke-app';
@@ -32,7 +32,6 @@ class App extends HTMLElement {
   handleNavigate (e) {
     if (e != undefined) {
       this.loadScreen (e.detail);
-      console.log (`Navigate to: ${e.detail}`);
     } else {
       console.log (`handleNavigation is initializing`);
     }
