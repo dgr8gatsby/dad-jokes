@@ -4,23 +4,13 @@ const ELEMENT_NAME = 'app-header';
 class AppHeader extends HTMLElement {
   constructor () {
     super ();
-    this.handleNavigate = this.handleNavigate.bind (this);
     var shadow = this.attachShadow ({
       mode: 'open',
       delegatesFocus: true,
     });
   }
 
-  handleNavigate (e) {
-    if (e != undefined) {
-      console.log (`Navigate to: ${e.detail}`);
-    } else {
-      console.log (`handleNavigation is initializing`);
-    }
-  }
-
   connectedCallback () {
-    this.shadowRoot.addEventListener ('navigate', this.handleNavigate);
     this.render ();
   }
 
