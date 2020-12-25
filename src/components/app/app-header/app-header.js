@@ -21,36 +21,32 @@ export default class AppHeader extends HTMLElement {
   render () {
     this.shadowRoot.innerHTML = `
     <style>
-        * {box-sizing: border-box;}
+      * {box-sizing: border-box;}
 
-        body { 
+      body { 
         margin: 0;
         font-family: Arial, Helvetica, sans-serif;
-        }
+      }
 
-        .header {
+      .header {
         overflow: hidden;
         background-color: #f1f1f1;
         padding: 20px 10px;
         display: grid;
         grid-template-columns: [col1-start] 1fr [col2-start] 1fr [end];
-        }
+      }
 
-        .header logo {
+      .header logo {
         font-size: 25px;
         font-weight: bold;
         grid-column: col1-start / col2-start;
-        }
+      }
 
-        .header-right {
+      .header-right {
         grid-column: col2-start / end;
-        }
+        justify-self: end;
+      }
 
-        @media screen and (max-width: 500px) {
-            .header-right {
-                float: none;
-            }
-        }
     </style>
 
     <div class="header">

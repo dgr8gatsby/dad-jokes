@@ -56,49 +56,42 @@ class App extends HTMLElement {
 
   render () {
     this.shadowRoot.innerHTML = `
-<<<<<<< HEAD
-        <p>
-            <slot name="header"></slot>
-            <p name="screens"></p>
-        </p>
-=======
-        <style>
-      .container {
-        display: grid;
-        grid-template-columns: [col1-start] 1fr [col2-start] 1fr [col3-start] 1fr [end];
-        grid-template-rows: [row1-start] 200px [row2-start] 200px [row3-start] 200px [end];
-      }
+      <style>
+        .container {
+          display: grid;
+          grid-template-columns: [col1-start] 1fr [col2-start] 1fr [col3-start] 1fr [end];
+          grid-template-rows: [row1-start] 200px [row2-start] 200px [row3-start] 200px [end];
+        }
 
-      .app-header {
-        background-color: yellow;
-        grid-column: col1-start / end;
-        grid-row: row1-start / row2-start;
-      }
+        .app-header {
+          background-color: yellow;
+          grid-column: col1-start / end;
+          grid-row: row1-start / row2-start;
+        }
 
-      .content {
-        background-color: salmon;
-        grid-column: col1-start / end;
-        grid-row: row2-start / row3-start;
-      }
+        .content {
+          background-color: salmon;
+          grid-column: col1-start / end;
+          grid-row: row2-start / row3-start;
+        }
 
-      .footer {
-        background-color: blue;
-        grid-column: col1-start / end;
-        grid-row: row3-start / end;
-      }
-        </style>
+        .footer {
+          background-color: blue;
+          grid-column: col1-start / end;
+          grid-row: row3-start / end;
+        }
+      </style>
 
-        <div class="app-header">
-          <h1>Dad Jokes</h1>
-          <slot name="header"></slot>
-        </div>
-        <div class="content">
-          <p name="screens"></p>
-        </div>
-        <div class="footer">
-          <p>Meow Mau</p>
-        </div>
->>>>>>> dda1410580843a763283860826d73b1895c2a596
+      <div class="app-header">
+        <slot name="header"></slot>
+      </div>
+      <div class="content">
+        <p name="screens"></p>
+      </div>
+      <div class="footer">
+        <p>Meow Mau</p>
+      </div>
+
       `;
   }
 }

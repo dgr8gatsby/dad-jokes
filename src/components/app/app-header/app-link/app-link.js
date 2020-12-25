@@ -46,21 +46,12 @@ export default class AppLink extends HTMLElement {
     this.shadowRoot.innerHTML = `
         <style>
           a {     
-            float: left;
             color: black;
-            text-align: center;
             padding: 12px;
             text-decoration: none;
             font-size: 18px; 
             line-height: 25px;
             border-radius: 4px;
-          }
-          @media screen and (max-width: 500px) {
-            a {
-                float: none;
-                display: block;
-                text-align: left;
-            }
           }
           a:hover {
             background-color: #ddd;
@@ -72,7 +63,9 @@ export default class AppLink extends HTMLElement {
           }
     
         </style>
-        <a href="#${this.route}">${this.name}</a>
+        <span>
+          <a href="#${this.route}">${this.name}</a>
+        </span>
       `;
   }
 }
