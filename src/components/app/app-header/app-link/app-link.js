@@ -61,9 +61,13 @@ export default class AppLink extends HTMLElement {
             background-color: dodgerblue;
             color: white;
           }
+
+          .primary {
+            font-family: var(--app-font-family);
+          }
     
         </style>
-        <span>
+        <span class="primary">
           <a href="#${this.route}">${this.name}</a>
         </span>
       `;
