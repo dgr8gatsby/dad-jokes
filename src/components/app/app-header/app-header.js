@@ -43,8 +43,10 @@ export default class AppHeader extends HTMLElement {
       }
 
       .header-right {
+        display: flex;
         grid-column: col2-start / end;
         justify-self: end;
+        align-items: center;
       }
 
     </style>
