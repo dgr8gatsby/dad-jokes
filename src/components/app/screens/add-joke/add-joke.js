@@ -1,9 +1,10 @@
+import template from './add-joke.html.js';
+import style from './add-joke.css.js';
 const ELEMENT_NAME = 'add-joke';
 
 export default class AddJoke extends HTMLElement {
   constructor () {
     super ();
-
     this.shadow = this.attachShadow ({
       mode: 'open',
     });
@@ -15,20 +16,30 @@ export default class AddJoke extends HTMLElement {
 
   onFormSubmit (e) {
     e.preventDefault ();
+    let form = e.target;
+
+    const XHR = new XMLHttpRequest ();
+    const FD = new FormData (form);
+
+    XHR.addEventListener ('load', event => {
+      console.log (event.target.responseText);
+    });
+
+    XHR.addEventListener ('error', event => {
+      console.log (event);
+    });
+
+    XHR.open ('POST', 'jokes');
+    XHR.send (FD);
   }
 
   render () {
-    this.shadowRoot.innerHTML = `<h1>Add Joke:</h1>
-    <form action="/jokes" method="POST">
-        <select name="type" id="joke-type">
-            <option value="question">Question & Answer</option>
-            <option value="rhetorical">Rhetorical Questions</option>
-            <option value="oneliner">One-liner</option>
-        </select>
-        <input type="text" placeholder="headline" name="headline">
-        <input type="text" placeholder="punchline" name="punchline">
-        <button type="submit">Submit</button>
-    </form>`;
+    this.shadowRoot.innerHTML = template (style);
+    this.refs = {
+      form: this.shadowRoot.querySelector ('[ref="form"]'),
+    };
+
+    this.refs.form.addEventListener ('submit', this.onFormSubmit);
   }
 }
 

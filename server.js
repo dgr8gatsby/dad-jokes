@@ -47,7 +47,7 @@ app.post ('/jokes', (req, res) => {
     if (error) {
       console.error (error);
     } else {
-      console.log ('meow');
+      res.end ('{"success" : "New joke added successfully", "status" : 200}');
     }
   });
 });
@@ -73,7 +73,7 @@ app.get ('/nani', (rq, res) => {
     if (error) {
       console.error (error);
     } else {
-      console.log ('meow');
+      res.end ('{"success" : "New joke added successfully", "status" : 200}');
     }
   });
 });

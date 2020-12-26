@@ -21,6 +21,7 @@ export default {
     copy ({
       targets: [
         {src: 'src/index.html', dest: 'public'},
+        {src: 'src/favicon.ico', dest: 'public'},
         {src: 'src/svg/*', dest: 'public/svg'},
         {src: 'src/components/app/screens', dest: 'public'},
       ],

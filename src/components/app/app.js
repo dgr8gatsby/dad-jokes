@@ -40,10 +40,11 @@ class App extends HTMLElement {
         this.screen = screenConstructor;
         this.displayScreen (name);
       } catch (e) {
-        throw new CustomError (
-          `Unable to load module`,
+        err = new Error (
           `${name}.js might not exist, this is the ${screenPath}`
         );
+        err.name = `ModuleLoad`;
+        throw err;
       }
     }
   }
