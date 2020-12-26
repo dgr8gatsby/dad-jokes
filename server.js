@@ -1,8 +1,8 @@
 const express = require ('express');
 const path = require ('path');
 const bodyParser = require ('body-parser');
-const mongoose = require('mongoose');
-const mongo = require('./mongo.config.js');
+const mongoose = require ('mongoose');
+const mongo = require ('./mongo.config.js');
 
 // TODO: Heather you can use local Mongo instead for now
 const app = express ();
@@ -29,29 +29,51 @@ app.get ('/', (req, res) => {
 app.post ('/jokes', (req, res) => {
   // Just loging requests from the client in the console
   console.log (req.body);
-  // TODO: Save in a Database
+
+  mongoose.connect (
+    mongo.config.URL + '/' + mongo.config.DB_NAME,
+    mongo.config.OPTIONS
+  );
+
+  const Joke = mongo.models.joke;
+
+  const newJoke = new Joke ({
+    type: req.body.type,
+    headline: req.body.headline,
+    punchline: req.body.punchline,
+  });
+
+  newJoke.save (error => {
+    if (error) {
+      console.error (error);
+    } else {
+      console.log ('meow');
+    }
+  });
 });
 
 // TODO: Make a path to return a test joke
 
-
 // For testing purpose:
 app.get ('/nani', (rq, res) => {
-  mongoose.connect(mongo.config.URL + '/' + mongo.config.DB_NAME, mongo.config.OPTIONS);
+  mongoose.connect (
+    mongo.config.URL + '/' + mongo.config.DB_NAME,
+    mongo.config.OPTIONS
+  );
 
   const Joke = mongo.models.joke;
 
-  const newJoke = new Joke({
+  const newJoke = new Joke ({
     type: 'question',
     headline: 'Where did captain hook find his hook?',
-    punchline: 'A second-hand store!'
+    punchline: 'A second-hand store!',
   });
 
-  newJoke.save(error => {
+  newJoke.save (error => {
     if (error) {
-      console.error(error);
+      console.error (error);
     } else {
-      console.log('meow')
+      console.log ('meow');
     }
   });
 });
