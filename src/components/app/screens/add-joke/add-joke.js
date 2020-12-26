@@ -17,9 +17,24 @@ export default class AddJoke extends HTMLElement {
   onFormSubmit (e) {
     e.preventDefault ();
     let form = e.target;
+    var formData = new Array ([...new FormData (form)])[0];
+
+    console.log (formData);
+    let postString = '';
+
+    for (var i = 0; i < formData.length; i++) {
+      let encodedValue = encodeURI (formData[i][1]);
+      postString += `${formData[i][0]}=${encodedValue}`;
+      if (i < formData.length - 1) {
+        postString += '&';
+      }
+    }
+
+    console.log (postString);
 
     const XHR = new XMLHttpRequest ();
     const FD = new FormData (form);
+    console.log (new URLSearchParams (FD.toString ()));
 
     XHR.addEventListener ('load', event => {
       console.log (event.target.responseText);
@@ -29,8 +44,9 @@ export default class AddJoke extends HTMLElement {
       console.log (event);
     });
 
-    XHR.open ('POST', 'jokes');
-    XHR.send (FD);
+    XHR.open ('POST', '/jokes');
+
+    XHR.send (postString);
   }
 
   render () {
@@ -39,7 +55,7 @@ export default class AddJoke extends HTMLElement {
       form: this.shadowRoot.querySelector ('[ref="form"]'),
     };
 
-    this.refs.form.addEventListener ('submit', this.onFormSubmit);
+    //this.refs.form.addEventListener ('submit', this.onFormSubmit);
   }
 }
 

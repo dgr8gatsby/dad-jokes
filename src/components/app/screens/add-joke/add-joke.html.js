@@ -1,7 +1,7 @@
 export default style => `
 <style>${style.css}</style>
 <h1>Add Joke:</h1>
-<form ref="form" class="primary">
+<form ref="form" action="/jokes" method="post" class="primary">
     <select name="type" id="joke-type">
         <option value="question">Question & Answer</option>
         <option value="rhetorical">Rhetorical Questions</option>
