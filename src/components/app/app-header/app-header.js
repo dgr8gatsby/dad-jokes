@@ -30,7 +30,7 @@ export default class AppHeader extends HTMLElement {
 
       .header {
         overflow: hidden;
-        background-color: #f1f1f1;
+        background-color: var(--app-background-color);
         padding: 20px 10px;
         display: grid;
         grid-template-columns: [col1-start] 1fr [col2-start] 1fr [end];

@@ -64,19 +64,16 @@ class App extends HTMLElement {
         }
 
         .app-header {
-          background-color: yellow;
           grid-column: col1-start / end;
           grid-row: row1-start / row2-start;
         }
 
         .content {
-          background-color: salmon;
           grid-column: col1-start / end;
           grid-row: row2-start / row3-start;
         }
 
         .footer {
-          background-color: blue;
           grid-column: col1-start / end;
           grid-row: row3-start / end;
         }
