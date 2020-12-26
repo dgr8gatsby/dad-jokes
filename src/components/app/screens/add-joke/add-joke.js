@@ -13,6 +13,10 @@ export default class AddJoke extends HTMLElement {
     this.render ();
   }
 
+  onFormSubmit (e) {
+    e.preventDefault ();
+  }
+
   render () {
     this.shadowRoot.innerHTML = `<h1>Add Joke:</h1>
     <form action="/jokes" method="POST">
