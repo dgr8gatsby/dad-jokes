@@ -8,20 +8,24 @@
     <meta name="description" content="The dad joke application that makes dad jokes better, for all of us!" />
     <style>
         :root {
-            --app-font-family: 'Roboto';
+            --app-font-family: 'Helvetica';
+            --app-background-color: #FDFBD0;
+        }
+
+        html {
+            background-color: var(--app-background-color);
         }
     </style>
 </head>
 
 <body>
-
     <!-- Load main app component scripts -->
     <script src="bundle.js" type="module"></script>
 
     <dad-joke-app>
         <app-header slot="header">
-            <app-link slot="navigation" link-name="View Joke" link-route="view-joke"></app-link>
-            <app-link slot="navigation" link-name="Add Joke" link-route="add-joke"></app-link>
+            <app-link slot="navigation" link-name="View Joke" link-route="view-joke" active="true"></app-link>
+            <app-link slot="navigation" link-name="Add Joke" link-route="add-joke" active="false"></app-link>
         </app-header>
         <app-screen slot="body"></app-screen>
     </dad-joke-app>
