@@ -19,7 +19,6 @@ export default class AddJoke extends HTMLElement {
     let form = e.target;
     var formData = new Array ([...new FormData (form)])[0];
 
-    console.log (formData);
     let postString = '';
 
     for (var i = 0; i < formData.length; i++) {
@@ -30,11 +29,8 @@ export default class AddJoke extends HTMLElement {
       }
     }
 
-    console.log (postString);
-
     const XHR = new XMLHttpRequest ();
     const FD = new FormData (form);
-    console.log (new URLSearchParams (FD.toString ()));
 
     XHR.addEventListener ('load', event => {
       console.log (event.target.responseText);
@@ -49,6 +45,7 @@ export default class AddJoke extends HTMLElement {
     // Add the required HTTP header for form data POST requests
     XHR.setRequestHeader ('Content-Type', 'application/x-www-form-urlencoded');
 
+    // Replace the '%20' with '+'
     XHR.send (postString.replace (/%20/g, '+'));
   }
 

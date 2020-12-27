@@ -1,3 +1,5 @@
+import template from './view-joke.html.js';
+import style from './view-joke.css.js';
 const ELEMENT_NAME = 'view-joke';
 /** This class renders a joke **/
 export default class ViewJoke extends HTMLElement {
@@ -18,13 +20,7 @@ export default class ViewJoke extends HTMLElement {
   }
 
   render () {
-    this.shadowRoot.innerHTML = `
-    <h1>View Joke Screen</h1>
-    <p>
-        <div>How do you handle a JavaScript bug?</div>
-        <div>You console it!</div>
-    </p>
-  `;
+    this.shadowRoot.innerHTML = template (style);
   }
 }
 
