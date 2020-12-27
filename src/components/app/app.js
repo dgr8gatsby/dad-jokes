@@ -89,7 +89,6 @@ class App extends HTMLElement {
       <div class="footer">
         <p>Meow Mau</p>
       </div>
-
       `;
   }
 }
