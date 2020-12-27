@@ -46,7 +46,10 @@ export default class AddJoke extends HTMLElement {
 
     XHR.open ('POST', '/jokes');
 
-    XHR.send (postString);
+    // Add the required HTTP header for form data POST requests
+    XHR.setRequestHeader ('Content-Type', 'application/x-www-form-urlencoded');
+
+    XHR.send (postString.replace (/%20/g, '+'));
   }
 
   render () {
@@ -55,7 +58,7 @@ export default class AddJoke extends HTMLElement {
       form: this.shadowRoot.querySelector ('[ref="form"]'),
     };
 
-    //this.refs.form.addEventListener ('submit', this.onFormSubmit);
+    this.refs.form.addEventListener ('submit', this.onFormSubmit);
   }
 }
 
