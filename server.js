@@ -47,7 +47,7 @@ app.post ('/jokes', (req, res) => {
     if (error) {
       console.error (error);
     } else {
-      //res.end ('{"success" : "New joke added successfully", "status" : 200}');
+      res.end ('{"success" : "New joke added successfully", "status" : 200}');
     }
   });
 });
