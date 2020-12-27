@@ -2,11 +2,15 @@ const express = require ('express');
 const path = require ('path');
 const bodyParser = require ('body-parser');
 const mongoose = require ('mongoose');
+
+// Load env variables
+require('dotenv').config();
 const mongo = require ('./mongo.config.js');
+
 
 // TODO: Heather you can use local Mongo instead for now
 const app = express ();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 const hostname = 'localhost';
 
 app.listen (PORT, err => {
