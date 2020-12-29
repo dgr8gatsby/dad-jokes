@@ -2,8 +2,8 @@ const process = require('process');
 const mongoose = require('mongoose');
 
 const config = {
-  URL: process.env.MONGO_URL || 'mongodb://localhost:27017',
-  DB_NAME: process.env.MONGO_DB_NAME || 'dadjokes',
+  URL: process.env.MONGO_URL,
+  DB_NAME: process.env.MONGO_DB_NAME,
   OPTIONS: {
     useNewUrlParser: true,
     useUnifiedTopology: true

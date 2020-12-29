@@ -2,17 +2,25 @@ const express = require ('express');
 const path = require ('path');
 const bodyParser = require ('body-parser');
 const mongoose = require ('mongoose');
-const mongo = require ('./mongo.config.js');
+
+
+// Load env variables:
+require ('dotenv').config ();
+const mongo = require ('./mongo.config');
+
 
 // TODO: Heather you can use local Mongo instead for now
 const app = express ();
-const PORT = process.env.PORT || 3000;
-const hostname = 'localhost';
+const PORT = process.env.PORT;
 
 app.listen (PORT, err => {
   if (err) throw err;
+  const hostname = 'localhost';
   console.log (`application listenting on http://${hostname}:${PORT}`);
 });
+
+const auth = require('./auth');
+auth.setup(app);
 
 // Used to parse POST body data
 app.use (bodyParser.urlencoded ({extended: true}));
@@ -53,6 +61,22 @@ app.post ('/jokes', (req, res) => {
 });
 
 // TODO: Make a path to return a test joke
+
+// If user is currently logged in, continue with the next callback.
+// Otherwise redirect to login page.
+const checkLogin = (req, res, next) => {
+  if (req.user) {
+    return next();
+  }
+
+  req.session.returnTo = req.originalUrl;
+  res.redirect('/login');
+};
+
+app.get('/user', checkLogin, (req, res, next) => {
+  const { _raw, _json, ...userProfile } = req.user;
+  res.end(JSON.stringify(userProfile, null, 4));
+});
 
 // For testing purpose:
 app.get ('/nani', (rq, res) => {
