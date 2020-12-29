@@ -1,6 +1,6 @@
 const ELEMENT_NAME = 'user-profile';
-import template from './user-profile.html.js';
-import style from './user-profile.css.js';
+import template from './user-profile.html.js.js.js.js';
+import style from './user-profile.css.js.js.js.js';
 
 export default class UserProfile extends HTMLElement {
   constructor () {

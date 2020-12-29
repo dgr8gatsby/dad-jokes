@@ -3,11 +3,9 @@ const path = require ('path');
 const bodyParser = require ('body-parser');
 const mongoose = require ('mongoose');
 
-
 // Load env variables:
 require ('dotenv').config ();
 const mongo = require ('./mongo.config');
-
 
 // TODO: Heather you can use local Mongo instead for now
 const app = express ();
@@ -19,8 +17,8 @@ app.listen (PORT, err => {
   console.log (`application listenting on http://${hostname}:${PORT}`);
 });
 
-const auth = require('./auth');
-auth.setup(app);
+const auth = require ('./auth');
+auth.setup (app);
 
 // Used to parse POST body data
 app.use (bodyParser.urlencoded ({extended: true}));
@@ -35,22 +33,26 @@ app.get ('/', (req, res) => {
 
 // Handle new jokes
 app.post ('/jokes', (req, res) => {
-  // Just loging requests from the client in the console
+  // Log requests from the client in the console for debugging
   console.log (req.body);
 
+  // Connect to the Mongoose DB
   mongoose.connect (
     mongo.config.URL + '/' + mongo.config.DB_NAME,
     mongo.config.OPTIONS
   );
 
+  // Reference the schema for a Joke
   const Joke = mongo.models.joke;
 
+  // Create a new Joke Object
   const newJoke = new Joke ({
     type: req.body.type,
     headline: req.body.headline,
     punchline: req.body.punchline,
   });
 
+  // Try to save the new joke
   newJoke.save (error => {
     if (error) {
       console.error (error);
@@ -66,16 +68,16 @@ app.post ('/jokes', (req, res) => {
 // Otherwise redirect to login page.
 const checkLogin = (req, res, next) => {
   if (req.user) {
-    return next();
+    return next ();
   }
 
   req.session.returnTo = req.originalUrl;
-  res.redirect('/login');
+  res.redirect ('/login');
 };
 
-app.get('/user', checkLogin, (req, res, next) => {
-  const { _raw, _json, ...userProfile } = req.user;
-  res.end(JSON.stringify(userProfile, null, 4));
+app.get ('/user', checkLogin, (req, res, next) => {
+  const {_raw, _json, ...userProfile} = req.user;
+  res.end (JSON.stringify (userProfile, null, 4));
 });
 
 // For testing purpose:
