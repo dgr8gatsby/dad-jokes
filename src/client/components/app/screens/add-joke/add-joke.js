@@ -1,6 +1,7 @@
 import template from './add-joke.html.js';
 import style from './add-joke.css.js';
 const ELEMENT_NAME = 'add-joke';
+const API_ROUTE = '/api/jokes';
 
 export default class AddJoke extends HTMLElement {
   constructor () {
@@ -40,7 +41,7 @@ export default class AddJoke extends HTMLElement {
       console.log (event);
     });
 
-    XHR.open ('POST', '/jokes');
+    XHR.open ('POST', API_ROUTE);
 
     // Add the required HTTP header for form data POST requests
     XHR.setRequestHeader ('Content-Type', 'application/x-www-form-urlencoded');
