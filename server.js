@@ -1,7 +1,9 @@
-const express = require ('express');
-const path = require ('path');
-const bodyParser = require ('body-parser');
-const mongoose = require ('mongoose');
+const express = require ('express'); // Use Express to help build server app
+const path = require ('path'); // Use path to help with directory paths
+const bodyParser = require ('body-parser'); // Use body-parser to help parse POST JSON objects
+const mongoose = require ('mongoose'); // Use Mongoose for data management & schema
+const routes = require ('./src/server/routes'); // Use central route management
+const auth = require ('./src/server/site/auth'); // Use Auth0 for managing logins to website
 
 // Load env variables:
 require ('dotenv').config ();
@@ -11,19 +13,14 @@ const mongo = require ('./mongo.config');
 const app = express ();
 const PORT = process.env.PORT;
 
-app.listen (PORT, err => {
-  if (err) throw err;
-  const hostname = 'localhost';
-  console.log (`application listenting on http://${hostname}:${PORT}`);
-});
+// For user login to the Website
 
-const auth = require ('./auth');
 auth.setup (app);
 
 // Used to parse POST body data
 app.use (bodyParser.urlencoded ({extended: true}));
 
-// Create a public folder for client
+// Create a public folder for client website content
 app.use (express.static (path.join (__dirname, 'public')));
 
 // Default path for main application
@@ -101,5 +98,12 @@ app.get ('/nani', (rq, res) => {
     } else {
       res.end ('{"success" : "New joke added successfully", "status" : 200}');
     }
+  });
+
+  // Start the server
+  app.listen (PORT, err => {
+    if (err) throw err;
+    const hostname = 'localhost';
+    console.log (`application listenting on http://${hostname}:${PORT}`);
   });
 });
