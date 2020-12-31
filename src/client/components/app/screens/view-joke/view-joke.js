@@ -15,12 +15,23 @@ export default class ViewJoke extends HTMLElement {
     });
   }
 
-  connectedCallback () {
+  props = {
+    _id: '5fe69c4f842ba5a859b21416',
+    type: 'question',
+    headline: 'loading...',
+    punchline: 'loading...',
+    __v: 0,
+  };
+
+  async connectedCallback () {
+    const response = await fetch ('/api/joke');
+    this.props = await response.json ();
+    console.log (this.props);
     this.render ();
   }
 
   render () {
-    this.shadowRoot.innerHTML = template (style);
+    this.shadowRoot.innerHTML = template (style, this.props);
   }
 }
 

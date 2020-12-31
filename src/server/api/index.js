@@ -1,4 +1,3 @@
-require ('dotenv').config (); // Load Application configuration environment variables
 const mongo = require ('./mongo.config'); // Use Mongo db for data management
 const mongoose = require ('mongoose'); // Use Mongoose for data schema
 const express = require ('express');
@@ -31,6 +30,25 @@ router.post ('/jokes', (req, res) => {
       console.error (error);
     } else {
       res.end ('{"success" : "New joke added successfully", "status" : 200}');
+    }
+  });
+});
+
+router.get ('/joke', (req, res) => {
+  // Connect to the Mongoose DB
+  mongoose.connect (
+    mongo.config.URL + '/' + mongo.config.DB_NAME,
+    mongo.config.OPTIONS
+  );
+
+  // Reference the schema for a Joke
+  const Joke = mongo.models.joke;
+
+  Joke.findOne ({}, (err, data) => {
+    if (err) {
+      console.log (`Error : ${err}`);
+    } else {
+      res.send (data);
     }
   });
 });

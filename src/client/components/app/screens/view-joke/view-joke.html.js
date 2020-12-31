@@ -1,10 +1,10 @@
-export default style => `
+export default (style, props) => `
 <style>${style}</style>
 <article class='primary'>
     <h1>View Joke Screen</h1>
     <p>
-        <div>How do you handle a JavaScript bug?</div>
-        <div>You console it!</div>
+        <div>${props.headline}</div>
+        <div>${props.punchline}</div>
     </p>
 </article>
 `;
