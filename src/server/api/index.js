@@ -34,6 +34,7 @@ router.post ('/jokes', (req, res) => {
   });
 });
 
+// Return one joke for quick testing
 router.get ('/joke', (req, res) => {
   // Connect to the Mongoose DB
   mongoose.connect (
