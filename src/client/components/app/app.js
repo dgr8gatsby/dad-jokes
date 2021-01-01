@@ -1,4 +1,6 @@
 import AppHeader from './app-header/app-header.js';
+import template from './app.html.js';
+import style from './app.css.js';
 
 // This class will be the container for the entire dad joke application
 const ELEMENT_NAME = 'dad-joke-app';
@@ -56,40 +58,7 @@ class App extends HTMLElement {
   }
 
   render () {
-    this.shadowRoot.innerHTML = `
-      <style>
-        .container {
-          display: grid;
-          grid-template-columns: [col1-start] 1fr [col2-start] 1fr [col3-start] 1fr [end];
-          grid-template-rows: [row1-start] 200px [row2-start] 200px [row3-start] 200px [end];
-        }
-
-        .app-header {
-          grid-column: col1-start / end;
-          grid-row: row1-start / row2-start;
-        }
-
-        .content {
-          grid-column: col1-start / end;
-          grid-row: row2-start / row3-start;
-        }
-
-        .footer {
-          grid-column: col1-start / end;
-          grid-row: row3-start / end;
-        }
-      </style>
-
-      <div class="app-header">
-        <slot name="header"></slot>
-      </div>
-      <div class="content">
-        <p name="screens"></p>
-      </div>
-      <div class="footer">
-        <p>Meow Mau</p>
-      </div>
-      `;
+    this.shadowRoot.innerHTML = template (style);
   }
 }
 
