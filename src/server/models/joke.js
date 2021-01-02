@@ -5,6 +5,7 @@ const JokeSchema = new Schema ({
   headline: {type: String, required: true},
   punchline: {type: String, required: false},
   type: {type: String, enum: ['qa', 'ol'], required},
+  why: {type: String, required: false},
 });
 
 // Virtual for joke URLs

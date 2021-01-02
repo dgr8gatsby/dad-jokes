@@ -2,6 +2,7 @@ const mongo = require ('./mongo.config'); // Use Mongo db for data management
 const mongoose = require ('mongoose'); // Use Mongoose for data schema
 const express = require ('express');
 const router = express.Router ();
+const data = require ('../data/jokes.json');
 
 // Handle new jokes
 router.post ('/jokes', (req, res) => {
@@ -52,6 +53,29 @@ router.get ('/joke', (req, res) => {
       res.send (data);
     }
   });
+});
+
+router.get ('/loaddata', (req, res) => {
+  // Connect to the Mongoose DB
+  mongoose.connect (
+    mongo.config.URL + '/' + mongo.config.DB_NAME,
+    mongo.config.OPTIONS
+  );
+
+  // Reference the schema for a Joke
+  const Joke = mongo.models.joke;
+
+  const bulkUpdate = data.map (doc => ({
+    updateOne: {
+      filter: {headline: doc.headline},
+      update: doc,
+      upsert: true,
+    },
+  }));
+
+  Joke.bulkWrite (bulkUpdate)
+    .then (result => console.log (`Bulk update ok: ${result}`))
+    .catch (console.error.bind (console, `Bulk update error!`));
 });
 
 module.exports = router;
