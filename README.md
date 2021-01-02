@@ -8,12 +8,10 @@ Setup
 
 To develop locally:
     `npm run dev` - runs nodemon locally uses parcel to build dist folder
+    To load sample data navigate to http://localhost:3000/api/loaddata
     
 Testing
     `npm run test` - runs jest
-
-Run in prod
-    `npm run build` - Creates a production build with minified code
 
 
 # Features

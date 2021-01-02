@@ -74,7 +74,10 @@ router.get ('/loaddata', (req, res) => {
   }));
 
   Joke.bulkWrite (bulkUpdate)
-    .then (result => console.log (`Bulk update ok: ${result}`))
+    .then (result => {
+      console.log (`Bulk update ok: ${result}`);
+      res.send (result);
+    })
     .catch (console.error.bind (console, `Bulk update error!`));
 });
 
