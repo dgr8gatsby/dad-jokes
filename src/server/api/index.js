@@ -1,5 +1,6 @@
 const mongo = require ('./mongo.config'); // Use Mongo db for data management
 const mongoose = require ('mongoose'); // Use Mongoose for data schema
+const jokeSchema = require ('../models/joke.js');
 const express = require ('express');
 const router = express.Router ();
 const data = require ('../data/jokes.json');
@@ -63,7 +64,7 @@ router.get ('/loaddata', (req, res) => {
   );
 
   // Reference the schema for a Joke
-  const Joke = mongo.models.joke;
+  const Joke = jokeSchema;
 
   const bulkUpdate = data.map (doc => ({
     updateOne: {

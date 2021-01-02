@@ -1,10 +1,10 @@
 const mongoose = require ('mongoose');
 const Schema = mongoose.schema;
 
-const JokeSchema = new Schema ({
+const JokeSchema = new mongoose.Schema ({
   headline: {type: String, required: true},
   punchline: {type: String, required: false},
-  type: {type: String, enum: ['qa', 'ol'], required},
+  type: {type: String, enum: ['question', 'oneliner'], required: true},
   why: {type: String, required: false},
 });
 
@@ -14,4 +14,4 @@ JokeSchema.virtual ('url').get (() => {
 });
 
 // Export the model
-module.exports = mongoose.model ('Joke', JokeSchema);
+module.exports = new mongoose.model ('Joke', JokeSchema);
