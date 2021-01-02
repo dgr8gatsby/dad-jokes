@@ -1,7 +1,7 @@
 export default `
   article {
     min-height: 100%;
-    display: grid;
+    display: inline-grid;
     grid-template-rows: auto 2fr auto;
     grid-template-columns: 100%;
     align-content: center;  
@@ -10,6 +10,8 @@ export default `
   main {
     align-content: center;
     display: inline-grid;
+    margin-left: 5%;
+    margin-right: 5%;
   }
 
   header {
