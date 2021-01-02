@@ -16,5 +16,11 @@
         "headline": "I wanted to tell you a joke about paper.",
         "punchline": "Nevermind, it is tear-able",
         "why": "The humor is a play on the word terrible versus tear-able. Since paper can tear, the joke plays on the word tear, likening it to terrible."
+    },
+    {
+        "type": "question",
+        "headline": "How can you tell if you are a pirate?",
+        "punchline": "You just arrrrrrrr!",
+        "why": "The humor is taking a common stereotype of pirate in the US culture where pirates in cartoons say Arrrrr."
     }
 ]
