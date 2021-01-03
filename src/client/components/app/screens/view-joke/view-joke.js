@@ -24,7 +24,7 @@ export default class ViewJoke extends HTMLElement {
   };
 
   async connectedCallback () {
-    const response = await fetch ('/api/joke');
+    const response = await fetch ('/api/random');
     this.props = await response.json ();
     console.log (this.props);
     this.render ();

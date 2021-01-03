@@ -56,6 +56,24 @@ router.get ('/joke', (req, res) => {
   });
 });
 
+router.get ('/random', (req, res) => {
+  // Connect to the Mongoose DB
+  mongoose.connect (
+    mongo.config.URL + '/' + mongo.config.DB_NAME,
+    mongo.config.OPTIONS
+  );
+
+  // Reference the schema for a Joke
+  const Joke = jokeSchema;
+  let randomJoke = Joke.aggregate ([{$sample: {size: 1}}], (err, joke) => {
+    if (err) {
+      console.log (err);
+    } else {
+      res.send (joke[0]);
+    }
+  });
+});
+
 router.get ('/loaddata', (req, res) => {
   // Connect to the Mongoose DB
   mongoose.connect (
