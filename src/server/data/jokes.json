@@ -9,7 +9,7 @@
         "type": "question",
         "headline": "Do you know why steelworkers on highrises give the best presentations?",
         "punchline": "Because they are riveting!",
-        "why": "The humor is making a connection between steelworkers on highrises putting together building using rivets."
+        "why": "The humor is making a connection between steelworkers on highrises putting together building using rivets, which are like bolts that hold steel beams together. The word riveting means: completely engrossing, compelling."
     },
     {
         "type": "question",
@@ -28,5 +28,11 @@
         "headline": "How can you tell the difference between a jaguar and a cheetah?",
         "punchline": "The jaguar plays by the rules.",
         "why": "The humor is taking a play on words equating cheetah to cheater, by saying the jaguar plays by the rules the joke is saying that a cheetch cheats."
+    },
+    {
+        "type": "question",
+        "headline": "What is a pirates favorite letter?",
+        "punchline": "You might think that it is 'R' but they really like the 'C'",
+        "why": "This joke is usually told after another pirate joke where the punchline is 'Arrr.' So people will think that the answer is 'R' to equate to the Arrr saying of a pirate, however this joke has a twist and says C meaning 'Sea' since pirates are always on ships in the sea."
     }
 ]

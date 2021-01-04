@@ -5,8 +5,8 @@ const express = require ('express');
 const router = express.Router ();
 const data = require ('../data/jokes.json');
 
-// Handle new jokes
-router.post ('/jokes', (req, res) => {
+// End point for adding new Joke documents to the mongo Database
+router.post ('/addjoke', (req, res) => {
   // Log requests from the client in the console for debugging
   console.log (req.body);
 
@@ -17,45 +17,36 @@ router.post ('/jokes', (req, res) => {
   );
 
   // Reference the schema for a Joke
-  const Joke = mongo.models.joke;
+  const Joke = jokeSchema;
 
   // Create a new Joke Object
   const newJoke = new Joke ({
     type: req.body.type,
     headline: req.body.headline,
     punchline: req.body.punchline,
+    why: req.body.why,
   });
 
   // Try to save the new joke
-  newJoke.save (error => {
-    if (error) {
-      console.error (error);
-    } else {
-      res.end ('{"success" : "New joke added successfully", "status" : 200}');
+  newJoke.updateOne (
+    {
+      headline: req.body.headline,
+      punchline: req.body.punchline,
+      type: req.body.type,
+      why: req.body.why,
+    },
+    {upsert: true},
+    error => {
+      if (error) {
+        console.error (error);
+      } else {
+        res.end ('{"success" : "New joke added successfully", "status" : 200}');
+      }
     }
-  });
-});
-
-// Return one joke for quick testing
-router.get ('/joke', (req, res) => {
-  // Connect to the Mongoose DB
-  mongoose.connect (
-    mongo.config.URL + '/' + mongo.config.DB_NAME,
-    mongo.config.OPTIONS
   );
-
-  // Reference the schema for a Joke
-  const Joke = mongo.models.joke;
-
-  Joke.findOne ({}, (err, data) => {
-    if (err) {
-      console.log (`Error : ${err}`);
-    } else {
-      res.send (data);
-    }
-  });
 });
 
+// End point for returing one random joke from the Mongo database
 router.get ('/random', (req, res) => {
   // Connect to the Mongoose DB
   mongoose.connect (
@@ -73,7 +64,7 @@ router.get ('/random', (req, res) => {
     }
   });
 });
-
+// End point to load sample jokes into the database
 router.get ('/loaddata', (req, res) => {
   // Connect to the Mongoose DB
   mongoose.connect (

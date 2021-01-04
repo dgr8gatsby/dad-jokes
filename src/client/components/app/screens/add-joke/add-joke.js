@@ -2,7 +2,7 @@ import template from './add-joke.html.js';
 import style from './add-joke.css.js';
 
 const ELEMENT_NAME = 'add-joke';
-const API_ROUTE = '/api/jokes';
+const API_ROUTE = '/api/addjoke';
 
 export default class AddJoke extends HTMLElement {
   constructor () {
